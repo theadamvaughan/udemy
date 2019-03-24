@@ -1,6 +1,3 @@
-
-
-
 drinks = [ 
   {
   name: "Carlsberg",
@@ -68,7 +65,7 @@ end
 
 def alcoholic(drink)
   puts "Would you like to see just the alcoholic drinks?"
-  answer = gets.chomp
+  answer = gets.chomp.downcase
   if answer == "yes" 
     puts "The following drinks are alcoholic;" 
     drink.each do |hash|
