@@ -79,13 +79,13 @@ drinks = [
 
 
 def percentage(drink)
+  puts "What is the minimum ABV that you are after?"
+  low = gets.chomp.to_i
   puts "What is the maximum ABV that you are after?"
-  input = gets.chomp.to_i
+  high = gets.chomp.to_i
   drink.each do |hash|
     volume = hash[:volume].to_i
-    if volume <= input
-    puts "#{hash[:name]} - #{hash[:volume]}%"
-    end
+    puts "#{hash[:name]} - #{hash[:volume]}%" if (volume >= low) && (volume <= high)
   end
 end
 
