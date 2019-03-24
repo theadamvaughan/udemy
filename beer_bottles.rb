@@ -63,21 +63,25 @@ def details(arr)
   end
 end
 
-details(drinks)
 
-# .......................Returns all the alccoholic drinks...................
+# .......................Returns all the alcoholic drinks...................
 
 def alcoholic(drink)
   puts "Would you like to see just the alcoholic drinks?"
   answer = gets.chomp
-  puts "The following drinks are alcoholic;" if answer == "yes" 
+  if answer == "yes" 
+    puts "The following drinks are alcoholic;" 
     drink.each do |hash|
-    puts "#{hash[:name]}"if hash[:alcoholic]
+    puts "#{hash[:name]}" if hash[:alcoholic]
+    end
+  elsif answer == "no"
+    puts "The following drinks are non-alcoholic;" 
+    drink.each do |hash|
+    puts "#{hash[:name]}" if hash[:alcoholic] == false
+    end
+  else puts "That is not a valid input"
   end
 end
-
-alcoholic(drinks)
-
 
 # .....................Returns drinks within a certain ABV range ...................
 
@@ -93,4 +97,6 @@ def percentage(drink)
   end
 end
 
+details(drinks)
+alcoholic(drinks)
 percentage(drinks)
