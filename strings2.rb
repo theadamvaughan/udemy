@@ -53,3 +53,57 @@ end
 
 
 #  ............... .join method on an Array ............
+
+
+
+names = ["Joe", "Moe", "Bob"]
+
+p names.join(" ")
+
+p ["H", "e", "l", "l", "o"].join
+
+def custom_join(array, delimiter = "")
+  string = ""
+  last_index = array.length - 1
+  array.each_with_index do |element, index| 
+    string << element
+    string << delimiter unless index == last_index
+  end
+  string
+end
+
+puts custom_join(names)
+puts custom_join(names, "-")
+
+
+
+#  ............... .count method on a string ............
+
+
+puts "Hello world".count("l")
+puts "Hello world".count("lo")
+puts "Hello world".count("lw")
+puts "Hello world".count("lH")
+
+puts "An amazing aardvark appearted".count("Aa")
+
+def custom_count(string, search_characters)
+  count = 0
+  string.each_char do |char|
+    if search_characters.include?(char)
+      count += 1
+    end
+  end
+  count
+end
+
+puts custom_count("An amazing aardvark appearted", "Aa")
+
+def custom_count(string, search_characters)
+  count = 0
+  string.each_char { |char| count += 1 if search_characters.include?(char) }
+  count
+end
+
+
+puts custom_count("An amazing aardvark appearted", "Aa")
