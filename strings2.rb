@@ -126,6 +126,8 @@ p fact.index("e", 6)
 
 p fact.rindex("e")
 
+#  Challenge
+
 def custom_index(string, substring)
   return nil unless string.include?(substring)
   length = substring.length
@@ -139,3 +141,19 @@ p custom_index(fact, "I")
 p custom_index(fact, "h")
 p custom_index(fact, "z")
 p custom_index(fact, "am")
+
+
+#  ............... the insert method on a string ............
+
+typo = "GeorgWashington"
+
+typo.insert(5, "e ")
+puts typo
+
+typo = "George Washingto"
+
+typo.insert(-1, "n")
+puts typo
+
+
+#  ............... the squeeze method on a string ............
