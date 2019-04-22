@@ -208,3 +208,37 @@ def custom_squeeze(string)
 end
 
 custom_sentence(sentence)
+
+
+#  ............... the clear method ............
+
+p "blah blah blah".clear
+
+# the .clear method will mutate the original object it is working on
+
+
+#  ............... the delete method ............
+
+puts "Hello World".delete('l')
+
+def custom_delete(string, delete_chatacters)
+  new_string = ""
+  string.each_char do |char|
+    unless delete_chatacters.include?(char)
+      new_string << char
+    end
+  end
+  p new_string
+end
+
+custom_delete("Hello world", "lw")
+
+
+
+def custom_delete(string, delete_chatacters)
+  new_string = ""
+  string.each_char {|char| new_string << char unless delete_chatacters.include?(char) }
+  p new_string
+end
+
+custom_delete("Hello world", "lw")
