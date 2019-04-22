@@ -157,3 +157,54 @@ puts typo
 
 
 #  ............... the squeeze method on a string ............
+
+sentence = "Thhhhe aardvark jummped    ovver the fence!"
+puts sentence.squeeze
+
+sentence = "Thhhhe aardvark jummped      ovver the fence!"
+puts sentence.squeeze(" ")
+puts sentence.squeeze("h")
+puts sentence.squeeze(" h")
+puts sentence.squeeze(" hv")
+puts sentence.squeeze(" hvm")
+
+sentence = "Thhe      aardvark     jummped   ovver the fennce!"
+
+def custom_sentence(string)
+  final = ""
+  chars = string.split("")
+  chars.each_with_index do |char, index|
+    if char == chars[index + 1]
+      next
+    else
+      final << char
+    end
+  end
+  p final
+end
+
+custom_sentence(sentence)
+
+# ............ This is the refactored code .........
+
+def custom_squeeze(string)
+  final = ""
+  chars = string.split("")
+  chars.each_with_index do |char, index|
+    char == chars[index + 1] ? next : final << char
+  end
+  p final
+end
+
+custom_sentence(sentence)
+
+# ............ Even more refactoring!! .........
+
+def custom_squeeze(string)
+  final = ""
+  chars = string.split("")
+  chars.each_with_index { |char, index| char == chars[index + 1] ? next : final << char }
+  p final
+end
+
+custom_sentence(sentence)
