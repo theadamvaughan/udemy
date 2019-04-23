@@ -1,8 +1,6 @@
 
 # ............... Object Pointers and Object Copies ........
 
-# 
-
 a = [1, 2, 3]
 b = [1, 2, 3]
 
@@ -29,3 +27,15 @@ c.push(30)
 p a
 p b
 p c
+
+# ............... Splat arguments ........
+
+# the splat method will take in an unknown number of arguments
+
+def sum(*numbers)
+  sum = 0
+  numbers.each { |num| sum += num }
+  p sum
+end
+
+sum(23, 56, 78, 23)
