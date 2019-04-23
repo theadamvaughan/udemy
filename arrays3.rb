@@ -39,3 +39,14 @@ def sum(*numbers)
 end
 
 sum(23, 56, 78, 23)
+
+# ................the .any? and .all? methods ............
+
+#  The .any? and .all? are boolean methods which will return either true or false
+
+p [1, 3, 4, 5, 7, 9].any? do |number|
+  number.even?
+end
+
+p [1, 3, 5, 7].all? { |num| num.odd? }
+p [1, 3, 8, 7].all? { |num| num.odd? }
